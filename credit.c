@@ -16,7 +16,9 @@ int main(void)
     }
     /*sums other numbers */
     for( long j = card*10 ; j > 0; j=j/100){
-        sum2 = sum2 + (j%10*2);
+        for( int c = j%10*2 ; c > 0 ; c = c/10){
+            sum2 = sum2 + c;
+        }
     }
     checksum = sum1 + sum2; 
     /*does the checksum compare*/
