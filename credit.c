@@ -10,13 +10,16 @@ int main(void)
 {
     card = get_long("Please enter card number\n");
     /* checksum */
+    /*takes even numbers*/
     for( long i = card ; i > 0; i=i/100){
         sum1 = sum1 + i%10;
     }
+    /*sums other numbers */
     for( long j = card*10 ; j > 0; j=j/100){
-        sum2 = sum2 + j%10;
+        sum2 = sum2 + (j%10*2);
     }
-    checksum = sum1 + sum2;    
+    checksum = sum1 + sum2; 
+    /*does the checksum compare*/
     if(checksum%10 != 0){
         printf("INVALID\n");
     }
