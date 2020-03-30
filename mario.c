@@ -11,7 +11,7 @@ int main(void)
      /* row */
   for(int i=hight;i!=0;i-=1){
       /*char*/
-    for(int j=hight-i;j<=hight;j+=1){
+    for(int j=hight-i+2;j<=hight;j+=1){
         printf(" ");
     }
     for(int f=i;f<=hight;f+=1)
