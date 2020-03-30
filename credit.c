@@ -18,7 +18,7 @@ int main(void)
     }
     checksum = sum1 + sum2;    
     if(checksum%10 != 0){
-        printf("INVALID");
+        printf("INVALID\n");
     }
     else
     {
@@ -26,18 +26,18 @@ int main(void)
         length = length + 1;
     }
     if((length == 16 && card/1000000000000000%10 == 5)&&(card/100000000000000%10 >0 && card/100000000000000%10 <6)){
-        printf("MasterCard");
+        printf("MASTERCARD\n");
     }
     else{
         if((length == 15 && card/100000000000000%10 == 3)&&(card/10000000000000%10 == 4 || card/10000000000000%10 == 7 )){
-            printf("American Express");
+            printf("AMEX\n");
         }
         else{
         if((length == 13 && card/1000000000000%10 == 4)||(length == 16 && card/1000000000000000%10 == 4)){
-            printf("VISA");
+            printf("VISA\n");
         }
          else{
-            printf("INVALID");     
+            printf("INVALID\n");     
             }
         }
     }
