@@ -13,6 +13,7 @@ int main(void)
     for (int i = 0, n = strlen(s); i < n; i++) {
         if ((s[i] == '.') || (s[i] == '?') || (s[i] == '!')) {
             scount=scount+1;
+            wcount=wcount+1;
         }
     }
 // letter counter
