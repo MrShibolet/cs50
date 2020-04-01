@@ -22,9 +22,6 @@ int main(void)
         }
     }
 // word counter
-    if (s[strlen(s)-1] != ' ') {
-        wcount+=1;
-    }
     for (int i = 0, n = strlen(s); i < n; i++) {
         if ((s[i] == ' ') && (s[i+1] != ' ')) {
             wcount=wcount+1;
