@@ -12,7 +12,7 @@ int main(int argc,string argv[])
     if(argc == 1)
     {
         printf("Usage: ./caesar key\n");
-        return 0;
+        return 1;
     }
     int countester = 0;
     string argv1 = argv[1];
@@ -51,6 +51,7 @@ int main(int argc,string argv[])
     }
     else{
         printf("Usage: ./caesar key\n");
+        return 1;
     }
 return 0;
 }
