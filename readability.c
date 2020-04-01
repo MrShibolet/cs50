@@ -2,6 +2,7 @@
 #include <cs50.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 int main(void)
 {
@@ -13,7 +14,9 @@ int main(void)
     for (int i = 0, n = strlen(s); i < n; i++) {
         if ((s[i] == '.') || (s[i] == '?') || (s[i] == '!')) {
             scount=scount+1;
-            wcount=wcount+1;
+            if(s[i+1] != ' ') {
+                wcount=wcount+1;
+            }
         }
     }
 // letter counter
@@ -28,16 +31,21 @@ int main(void)
             wcount=wcount+1;
         }
     }
-    int L = (100/wcount) * lcount;
-    int S = (100/wcount) * scount;
-    int index = 0.0588 * L - 0.296 * S - 15.8;
+//    printf("scount %d\n",scount);
+//    printf("lcount %d\n",lcount);
+//    printf("wcount %d\n",wcount);
+    float L = (100/wcount) * lcount;
+    float S = (100/wcount) * scount;
+    float ind = 0.0588 * L - 0.296 * S - 15.8;
+    int index = round(ind);
+//    printf("Index %f",ind);
     if(index < 1) {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     else if(index > 16) {
-            printf("Grade 16+");
+            printf("Grade 16+\n");
     }
     else{
-        printf("Grade %d",index);
+        printf("Grade %f\n",ind);
     }
 }
