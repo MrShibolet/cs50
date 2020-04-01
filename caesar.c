@@ -24,7 +24,6 @@ int main(int argc,string argv[])
         char cypher[strlen(text)];
         int key = atoi(argv[1]);
         key = key%26;
-        printf("cipher:  %d\n",key);
         for(int i = 0; i <= strlen(text);i++)
         {
             if(isalpha(text[i]))
