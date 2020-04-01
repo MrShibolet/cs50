@@ -9,9 +9,13 @@
 
 int main(int argc,string argv[])
 {
+    if(argc == 1)
+    {
+        printf("Usage: ./caesar key\n");
+        return 0;
+    }
     int countester = 0;
     string argv1 = argv[1];
-    string text = get_string("plaintext:\n");
     for(int j = 0; j <= strlen(argv[1]) - 1; j+=1)
     {
        if(isdigit(argv1[j]) == 0)
@@ -21,6 +25,7 @@ int main(int argc,string argv[])
     }
     if ((argc == 2) && (countester == 0))
     {
+    string text = get_string("plaintext:");
         char cypher[strlen(text)];
         int key = atoi(argv[1]);
         key = key%26;
@@ -28,13 +33,13 @@ int main(int argc,string argv[])
         {
             if(isalpha(text[i]))
             {
-                if ((text[i] == 'z') || (text[i] == 'Z'))
+                if ((isupper(text[i] + key) == isupper(text[i])) && isalpha(text[i] + key))
                 {
-                    cypher[i] = text[i] - 26 + key;
+                    cypher[i] = text[i] + key;
                 }
                 else
                 {
-                    cypher[i] = text[i] + key;
+                    cypher[i] = text[i] -26 + key;
                 }
             }
             else
