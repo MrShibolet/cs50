@@ -34,8 +34,11 @@ int main(void)
 //    printf("scount %d\n",scount);
 //    printf("lcount %d\n",lcount);
 //    printf("wcount %d\n",wcount);
-    float L = (100/wcount) * lcount;
-    float S = (100/wcount) * scount;
+
+    float L = (100.0/wcount) * lcount;
+    float S = (100.0/wcount) * scount;
+//    printf("L %f\n",L);
+//    printf("S %f\n",S);
     float ind = 0.0588 * L - 0.296 * S - 15.8;
     int index = round(ind);
 //    printf("Index %f",ind);
