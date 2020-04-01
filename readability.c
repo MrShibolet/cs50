@@ -30,9 +30,6 @@ int main(void)
             wcount=wcount+1;
         }
     }
-    printf("%d letter(s)\n",lcount);
-    printf("%d word(s)\n",wcount);
-    printf("%d sentence(s)\n",scount);
     int L = (100/wcount) * lcount;
     int S = (100/wcount) * scount;
     int index = 0.0588 * L - 0.296 * S - 15.8;
