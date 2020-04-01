@@ -11,7 +11,7 @@ int main(int argc,string argv[])
 {
     int countester = 0;
     string argv1 = argv[1];
-    string text = "zzZZ";
+    string text = get_string("plaintext:\n");
     for(int j = 0; j <= strlen(argv[1]) - 1; j+=1)
     {
        if(isdigit(argv1[j]) == 0)
