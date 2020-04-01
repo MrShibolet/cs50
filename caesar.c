@@ -43,7 +43,6 @@ int main(int argc,string argv[])
                 cypher[i] = text[i];
             }
         }
-        printf("plaintext:  %s\n",text);
         printf("ciphertext: %s\n",cypher);
     }
     else{
