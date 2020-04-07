@@ -151,11 +151,15 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
+    for (int i = 0; i < candidate_count; i++)
+    {
+        candidates[i].votes = 0;
+    }
     for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j ++)
         {
-            if (!candidates[preferences[i][j]].eliminated)
+            if (candidates[preferences[i][j]].eliminated == false)
             {
                 candidates[preferences[i][j]].votes += 1;
             }
