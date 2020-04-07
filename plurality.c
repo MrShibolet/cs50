@@ -82,14 +82,14 @@ void print_winner(void)
 {
     candidates[0].votes = 0;
     candidates[0].name = "error";
-    for (int i = 1; i < candidate_count + 1 ; i +=1)
+    for (int i = 1; i < candidate_count ; i +=1)
     {
         if (candidates[i].votes >= candidates[0].votes )
         {
             candidates[0].votes = candidates[i].votes;
         }
     }
-        for (int j = 1; j < candidate_count + 1 ; j += 1)
+        for (int j = 1; j < candidate_count ; j += 1)
     {
         if (candidates[j].votes >= candidates[0].votes )
         {
