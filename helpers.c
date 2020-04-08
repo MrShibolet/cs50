@@ -114,7 +114,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int x = -1; x <= 2; x ++)
                 {
                     //if pixel is in bound 
-                    if ((j + x <= width )&&(i + z <= height )&&(i + z >= 0)&&(j + x >= 0))
+                    if ((j + x <= width - 1 )&&(i + z <= height - 1 )&&(i + z >= 0)&&(j + x >= 0))
                     {
                         blurblue = blurblue + image[i+z][j+x].rgbtBlue;
                         blurgreen = blurgreen + image[i+z][j+x].rgbtGreen;
@@ -128,10 +128,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             blur[i][j].rgbtGreen = round(blurgreen / devider);
         }
     }
-    for (int i = 0; i < height ;i += 1)
+    for (int i = 0; i <= height - 1 ;i += 1)
     { 
 //put input into output
-        for(int z = 0; z < width; z +=1)
+        for(int z = 0; z <= width - 1; z +=1)
         {
             image[i][z].rgbtBlue = blur[i][z].rgbtBlue;
             image[i][z].rgbtRed = blur[i][z].rgbtRed;
