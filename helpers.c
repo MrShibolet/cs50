@@ -123,10 +123,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-        devider = 9;
-        blur[i][j].rgbtBlue = round(blurblue / devider);
-        blur[i][j].rgbtRed = round(blurred / devider);
-        blur[i][j].rgbtGreen = round(blurgreen / devider);
+            blur[i][j].rgbtBlue = round(blurblue / devider);
+            blur[i][j].rgbtRed = round(blurred / devider);
+            blur[i][j].rgbtGreen = round(blurgreen / devider);
         }
     }
     for (int i = 0; i < height ;i += 1)
