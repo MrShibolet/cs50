@@ -108,10 +108,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             double blurred = 0;
             double blurgreen = 0;
 // look for one line above , current and below line
-            for (int z = -1; z <= 2; z ++)
+            for (int z = -1; z < 2; z ++)
             {
 // look for one pixel before , current and after the pixel in question
-                for (int x = -1; x <= 2; x ++)
+                for (int x = -1; x < 2; x ++)
                 {
                     //if pixel is in bound 
                     if (((j + x <= width - 1 )&&(j + x >= 0))&&((i + z <= height - 1 )&&(i + z >= 0)))
