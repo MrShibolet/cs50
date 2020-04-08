@@ -97,10 +97,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
         RGBTRIPLE blur[height][width];
 // take every row one by one
-    for (int i = 0; i < height ;i += 1)
+    for (int i = 0; i <= height - 1 ;i += 1)
     {
 // take every pixel in each row one by one
-        for(int j = 0; j < width ; j += 1 )
+        for(int j = 0; j <= width - 1 ; j += 1 )
         {
 // get all values for pixel
             double devider = 0;
@@ -114,7 +114,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int x = -1; x <= 2; x ++)
                 {
                     //if pixel is in bound 
-                    if ((j + x <= width - 1 )&&(i + z <= height - 1 )&&(i + z >= 0)&&(j + x >= 0))
+                    if (((j + x <= width - 1 )&&(j + x >= 0))||((i + z <= height - 1 )&&(i + z >= 0)))
                     {
                         blurblue = blurblue + image[i+z][j+x].rgbtBlue;
                         blurgreen = blurgreen + image[i+z][j+x].rgbtGreen;
