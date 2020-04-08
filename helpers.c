@@ -114,7 +114,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int x = -1; x <= 2; x ++)
                 {
                     //if pixel is in bound 
-                    if ((j + x < width -1 )&&(i + z < height - 1)&&(i + z > 0)&&(j + x > 0))
+                    if ((j + x <= width -1 )&&(i + z <= height - 1)&&(i + z > 0)&&(j + x > 0))
                     {
                         blurblue = blurblue + image[i+z][j+x].rgbtBlue;
                         blurgreen = blurgreen + image[i+z][j+x].rgbtGreen;
