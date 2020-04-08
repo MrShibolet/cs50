@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include "math.h"
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -13,11 +14,11 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             int blue = image[i][j].rgbtBlue;
             int green = image[i][j].rgbtGreen;
             int red = image[i][j].rgbtRed;
-            int avg = ((blue + red + green)/3);
+            double avg = ((blue + red + green)/3);
 // put average into picture
-            image[i][j].rgbtBlue = avg;
-            image[i][j].rgbtGreen = avg;
-            image[i][j].rgbtRed = avg;
+            image[i][j].rgbtBlue = ceil(avg);
+            image[i][j].rgbtGreen = ceil(avg);
+            image[i][j].rgbtRed = ceil(avg);
         }
     }
     return;
@@ -41,9 +42,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             double sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue;
             double sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue;
 // make them int so bmp can use them
-            int red = sepiaRed;
-            int blue = sepiaBlue;
-            int green = sepiaGreen;
+            int red = ceil(sepiaRed);
+            int blue = ceil(sepiaBlue);
+            int green = ceil(sepiaGreen);
 // cap off at 255 value
             if (red > 255)
             {
