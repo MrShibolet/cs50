@@ -34,9 +34,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         for(int j = 0; j < width ; j += 1 )
         {
 // get all values for pixel
-            int originalBlue = image[i][j].rgbtBlue;
-            int originalGreen = image[i][j].rgbtGreen;
-            int originalRed = image[i][j].rgbtRed;
+            double originalBlue = image[i][j].rgbtBlue;
+            double originalGreen = image[i][j].rgbtGreen;
+            double originalRed = image[i][j].rgbtRed;
 //sepia algorythm
             double sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue;
             double sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue;
