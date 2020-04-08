@@ -19,7 +19,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             int av = ceil(avg);
             image[i][j].rgbtBlue = av;
             image[i][j].rgbtGreen = av;
-            image[i][j].rgbtRed = av);
+            image[i][j].rgbtRed = av;
         }
     }
     return;
