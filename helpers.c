@@ -16,7 +16,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             double red = image[i][j].rgbtRed;
             double avg = ((blue + red + green )/3);
 // put average into picture
-            int av = ceil(avg);
+            int av = round(avg);
             image[i][j].rgbtBlue = av;
             image[i][j].rgbtGreen = av;
             image[i][j].rgbtRed = av;
@@ -43,9 +43,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             double sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue;
             double sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue;
 // make them int so bmp can use them
-            int red = ceil(sepiaRed);
-            int blue = ceil(sepiaBlue);
-            int green = ceil(sepiaGreen);
+            int red = round(sepiaRed);
+            int blue = round(sepiaBlue);
+            int green = round(sepiaGreen);
 // cap off at 255 value
             if (red > 255)
             {
@@ -103,7 +103,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for(int j = 0; j < width ; j += 1 )
         {
 // get all values for pixel
-            int devider = 1;
+            int devider = 0;
             int blurblue = 0;
             int blurred = 0;
             int blurgreen = 0;
