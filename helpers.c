@@ -103,10 +103,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for(int j = 0; j < width ; j += 1 )
         {
 // get all values for pixel
-            int devider = 0;
-            int blurblue = 0;
-            int blurred = 0;
-            int blurgreen = 0;
+            double devider = 0;
+            double blurblue = 0;
+            double blurred = 0;
+            double blurgreen = 0;
 // look for one line above , current and below line
             for (int z = -1; z < 3; z ++)
             {
@@ -123,9 +123,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-        blur[i][j].rgbtBlue = blurblue / devider;
-        blur[i][j].rgbtRed = blurred / devider;
-        blur[i][j].rgbtGreen = blurgreen / devider;
+        blur[i][j].rgbtBlue = round(blurblue / devider);
+        blur[i][j].rgbtRed = round(blurred / devider);
+        blur[i][j].rgbtGreen = round(blurgreen / devider);
         }
     }
     for (int i = 0; i < height ;i += 1)
