@@ -5,16 +5,16 @@
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
 // take every row one by one
-    for (int i = 0; i < height ;i += 1)
+    for (int i = 0; i < height ; i += 1)
     {
 // take every pixel in each row one by one
-        for(int j = 0; j < width ; j += 1 )
+        for (int j = 0; j < width ; j += 1)
         {
 // average all colors to create gray
             double blue = image[i][j].rgbtBlue;
             double green = image[i][j].rgbtGreen;
             double red = image[i][j].rgbtRed;
-            double avg = ((blue + red + green )/3);
+            double avg = ((blue + red + green) / 3);
 // put average into picture
             int av = round(avg);
             image[i][j].rgbtBlue = av;
@@ -29,10 +29,10 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
     // take every row one by one
-    for (int i = 0; i < height ;i += 1)
+    for (int i = 0; i < height ; i += 1)
     {
 // take every pixel in each row one by one
-        for(int j = 0; j < width ; j += 1 )
+        for (int j = 0; j < width ; j += 1)
         {
 // get all values for pixel
             double originalBlue = image[i][j].rgbtBlue;
@@ -73,17 +73,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE rev[height][width];
 // take every row one by one
-    for (int i = 0; i < height ;i += 1)
+    for (int i = 0; i < height ; i += 1)
     {
 // take every pixel in each row one by one
-        for(int j = 0; j < width ; j += 1 )
+        for (int j = 0; j < width ; j += 1)
         {
 // get all values for pixel
-            rev[i][width-1-j].rgbtBlue = image[i][j].rgbtBlue;
-            rev[i][width-1-j].rgbtRed = image[i][j].rgbtRed;
-            rev[i][width-1-j].rgbtGreen = image[i][j].rgbtGreen;
+            rev[i][width - 1 - j].rgbtBlue = image[i][j].rgbtBlue;
+            rev[i][width - 1 - j].rgbtRed = image[i][j].rgbtRed;
+            rev[i][width - 1 - j].rgbtGreen = image[i][j].rgbtGreen;
         }
-        for(int z = 0; z < width ; z +=1)
+        for (int z = 0; z < width ; z += 1)
         {
             image[i][z].rgbtBlue = rev[i][z].rgbtBlue;
             image[i][z].rgbtRed = rev[i][z].rgbtRed;
@@ -95,12 +95,12 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-        RGBTRIPLE blur[height][width];
+    RGBTRIPLE blur[height][width];
 // take every row one by one
-    for (int i = 0; i <= height - 1 ;i += 1)
+    for (int i = 0; i <= height - 1 ; i += 1)
     {
 // take every pixel in each row one by one
-        for(int j = 0; j <= width - 1 ; j += 1 )
+        for (int j = 0; j <= width - 1 ; j += 1)
         {
 // get all values for pixel
             double devider = 0;
@@ -114,11 +114,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int x = -1; x < 2; x ++)
                 {
                     //if pixel is in bound 
-                    if (((j + x <= width - 1 )&&(j + x >= 0))&&((i + z <= height - 1 )&&(i + z >= 0)))
+                    if (((j + x <= width - 1) && (j + x >= 0)) && ((i + z <= height - 1) && (i + z >= 0)))
                     {
-                        blurblue = blurblue + image[i+z][j+x].rgbtBlue;
-                        blurgreen = blurgreen + image[i+z][j+x].rgbtGreen;
-                        blurred = blurred + image[i+z][j+x].rgbtRed;
+                        blurblue = blurblue + image[i + z][j + x].rgbtBlue;
+                        blurgreen = blurgreen + image[i + z][j + x].rgbtGreen;
+                        blurred = blurred + image[i + z][j + x].rgbtRed;
                         devider += 1 ;
                     }
                 }
@@ -128,10 +128,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             blur[i][j].rgbtGreen = round(blurgreen / devider);
         }
     }
-    for (int i = 0; i <= height - 1 ;i += 1)
+    for (int i = 0; i <= height - 1 ; i += 1)
     { 
 //put input into output
-        for(int z = 0; z <= width - 1; z +=1)
+        for (int z = 0; z <= width - 1; z += 1)
         {
             image[i][z].rgbtBlue = blur[i][z].rgbtBlue;
             image[i][z].rgbtRed = blur[i][z].rgbtRed;
