@@ -5,7 +5,7 @@ typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
-int i = 0;
+int i = 1;
 FILE *img = NULL;
 char *filename = malloc(8 * sizeof(char));
   if (argc != 2)
@@ -35,14 +35,14 @@ char *filename = malloc(8 * sizeof(char));
             {
                 fclose(img);
             }
-            sprintf(filename, "%03i.jpg",i);
+            sprintf(filename, "%03i.jpg",i-1);
             img = fopen(filename, "w");
             fwrite(now, sizeof(BYTE), 512, img);
             i += 1;
         }
         else if(i > 1)
-        { 
-            fwrite(now, sizeof(BYTE), 512, img); 
+        {
+            fwrite(now, sizeof(BYTE), 512, img);
         }
     }
     fclose(file);
