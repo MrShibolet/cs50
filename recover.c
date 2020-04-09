@@ -5,11 +5,9 @@ typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
-int i = 0;
+int i = 1;
 FILE *img = NULL;
-int neeg = 0;
-char filename[7];
-unsigned char bytes[4];
+char *filename = malloc(8 * sizeof(char));
   if (argc != 2)
     {
         printf("Usage: ./recover image\n");
@@ -27,22 +25,27 @@ unsigned char bytes[4];
     }
     int blocks = length / 512;
     file = fopen(argv[1], "r");
-    for (int j=0; j < blocks; j += 1)
+    for (int j = 0; j < blocks; j += 1)
     {
         BYTE now[512];
         fread(now, 1, 512, file);
         if (now[0] == 0xff && now[1] == 0xd8 && now[2] == 0xff && ((now[3] & 0xf0) == 0xe0))
         {
-            if(i != 0)
+            if(i == 0)
             {
                 fclose(img);
             }
             sprintf(filename, "%03i.jpg",i);
-            img = fopen(filename, "w"); 
-            fwrite(now, 1, 512, img);
+            img = fopen(filename, "w");
+            fwrite(now, sizeof(BYTE), 512, img);
             i += 1;
+        }
+        else if(i > 1)
+        { 
+            fwrite(now, sizeof(BYTE), 512, img); 
         }
     }
     fclose(file);
     fclose(img);
+    free(filename);
 }
