@@ -5,7 +5,7 @@ typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
-int i = 1;
+int i = 0;
 FILE *img = NULL;
 char *filename = malloc(8 * sizeof(char));
   if (argc != 2)
