@@ -36,21 +36,21 @@ bool check(const char *word)
     //terminator
     temp[n - 1] = '\0';
 
-    for(int i = 0; i < n - 1; i += 1)
+    for (int i = 0; i < n - 1; i += 1)
     {
-        temp[i]=tolower(word[i]);
+        temp[i] = tolower(word[i]);
     }
 
     int index = hash(temp) % N;
-    node*head = table[index];
+    node *head = table[index];
 
-    if(head != NULL)
+    if (head != NULL)
     {
-        node* tester = head;
+        node *tester = head;
 
-        while(tester != NULL)
+        while (tester != NULL)
         {
-            if(strcmp(temp,tester -> word) == 0)
+            if (strcmp(temp, tester -> word) == 0)
             {
                 //word in dict
                 return true;
@@ -81,23 +81,23 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-     //Open dictionary
-    FILE* fi = fopen(dictionary, "r");
-    if(!fi)
+    //Open dictionary
+    FILE *fi = fopen(dictionary, "r");
+    if (!fi)
     {
         fclose(fi);
         return false;
     }
     //buffer string for each word
-    char buffer[LENGTH+1];
+    char buffer[LENGTH + 1];
     //while fgets doest get EOF from file fi
-    while(fgets(buffer,(LENGTH + 2),fi) != NULL)
+    while (fgets(buffer, (LENGTH + 2), fi) != NULL)
     {
         // add termination /0 at the end of the new string
         buffer[strlen(buffer) - 1] = '\0';
         int index = hash(buffer) % N;
         //temporary node test before insert into real
-        node* temp = malloc(sizeof(node));
+        node *temp = malloc(sizeof(node));
         if (!temp)
         {
             fclose(fi);
@@ -126,14 +126,14 @@ unsigned int size(void)
 bool unload(void)
 {
     // N is bucket size
-    for(int i = 0; i <= N; i+=1)
+    for (int i = 0; i <= N; i += 1)
     {
-        node* tester = table[i];
+        node *tester = table[i];
         //while tester isnt empty
-        while(tester != NULL)
+        while (tester != NULL)
         {
             //create pointer to old entry
-            node* temp = tester;
+            node *temp = tester;
             // advance tester
             tester = tester -> next;
             // free old
