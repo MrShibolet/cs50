@@ -34,9 +34,9 @@ bool check(const char *word)
     char temp[n];
 
     //terminator
-    temp[n-1] = '\0';
+    temp[n - 1] = '\0';
 
-    for(int i=0; i <= n; i+=1)
+    for(int i = 0; i < n - 1; i += 1)
     {
         temp[i]=tolower(word[i]);
     }
