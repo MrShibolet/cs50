@@ -48,7 +48,7 @@ bool check(const char *word)
     {
         node* tester = head;
 
-        while(!tester)
+        while(tester != NULL)
         {
             if(strcmp(temp,tester -> word) == 0)
             {
@@ -91,7 +91,7 @@ bool load(const char *dictionary)
     //buffer string for each word
     char buffer[LENGTH+1];
     //while fgets doest get EOF from file fi
-    while(!fgets(buffer,LENGTH + 2,fi))
+    while(fgets(buffer,(LENGTH + 2),fi) != NULL)
     {
         // add termination /0 at the end of the new string
         buffer[strlen(buffer) - 1] = '\0';
@@ -126,11 +126,11 @@ unsigned int size(void)
 bool unload(void)
 {
     // N is bucket size
-    for(int i = 0; i < N; i+=1)
+    for(int i = 0; i <= N; i+=1)
     {
         node* tester = table[i];
         //while tester isnt empty
-        while(!tester)
+        while(tester != NULL)
         {
             //create pointer to old entry
             node* temp = tester;
