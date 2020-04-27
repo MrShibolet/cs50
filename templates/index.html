@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}
+    Home
+{% endblock %}
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <th>Stock</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            {% for investment in history %}
+            <tr>
+                <td>{{ investment.symbol }}</td>
+                <td>{{ investment.total }}</td>
+                <td>{{ investment.price | usd }}</td>
+                <td>{{ (investment.price * investment.total) | usd }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Remaining Cash:</td>
+                <td>{{ cash | usd}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
