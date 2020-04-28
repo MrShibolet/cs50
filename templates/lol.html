@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    League of legends query
+{% endblock %}
+{% block main %}
+<img src="https://upload.wikimedia.org/wikipedia/he/7/77/League_of_Legends_logo.png" border = 0px >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User Searched</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{ info.name }}</td>
+                    <td>{{ info.summonerLevel }}</td>
+                </tr>
+        </tbody>
+    </table>
+{% endblock %}

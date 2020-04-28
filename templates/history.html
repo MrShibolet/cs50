@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Game</th>
+                <th>User Searched</th>
+                <th>When</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history in history %}
+                <tr>
+                    <td>{{ history.game }}</td>
+                    <td>{{ history.searched }}</td>
+                    <td>{{ history.created_at }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

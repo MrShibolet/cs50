@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Minecraft query
+{% endblock %}
+
+{% block main %}
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG95OQlznkk_b6Owd_ueVbvl8UmXT1UAYaw5rrrSrXFqHVHOc-ig&s" border = 0px >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Previous name</th>
+                <th>changed To At</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{ info.name }}</td>
+                    <td>{{ info.changedToAt }}</td>
+                </tr>
+        </tbody>
+    </table>
+{% endblock %}
